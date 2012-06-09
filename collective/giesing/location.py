@@ -7,7 +7,7 @@ from plone.app.textfield import RichText
 
 from collective.giesing import GiesingMessageFactory as _
 
-class ILocation(form.Schema)
+class ILocation(form.Schema):
     """ A location is a real or fictional place where a snippet can be set. A 
         guideline for the size of a location is "as far as the eye can see".
         Examples are a flat, a bar, a forest clearing etc.
@@ -17,7 +17,7 @@ class ILocation(form.Schema)
             title=_(u"Location Name"),
         )
 
-    description = RichText(
+    description = schema.Text(
             title=_(u"Description"),
             required=False,
         )
@@ -27,5 +27,5 @@ class ILocation(form.Schema)
             required=False,
             min_length=2,
             max_length=2,
-            value_type=Float(title=_("Coordinate")),
+            value_type=schema.Float(title=_("Coordinate")),
         )

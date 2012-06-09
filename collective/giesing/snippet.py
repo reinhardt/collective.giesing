@@ -11,7 +11,7 @@ from collective.giesing import GiesingMessageFactory as _
 from collective.giesing.location import ILocation
 
 class ISnippet(form.Schema):
-    """ A snippet is a short (a few paragraphs) prose text, usually part of a storline
+    """ A snippet is a short (a few paragraphs) prose text, usually part of a storyline
     """
 
     title = schema.TextLine(
@@ -30,7 +30,7 @@ class ISnippet(form.Schema):
 
     timetag = schema.Datetime(
             title=_(u"Timetag"),
-            description=_("The approximate time at which the events that this"
+            description=_("The approximate time at which the events that this "
                           "snippet describes take place"),
             required=False,
         )

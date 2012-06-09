@@ -1,0 +1,5 @@
+<object name="portal_types">
+ <object name="collective.giesing.snippet" meta_type="Dexterity FTI" />
+ <object name="collective.giesing.location" meta_type="Dexterity FTI" />
+ <!--object name="collective.giesing." meta_type="Dexterity FTI" /-->
+</object>

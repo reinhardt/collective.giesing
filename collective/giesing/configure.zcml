@@ -8,6 +8,8 @@
     <!-- Include configuration for dependencies listed in setup.py -->
     <includeDependencies package="." />
 
+    <include package=".browser" />
+
     <!-- Grok the package to initialise schema interfaces and content classes -->
     <grok:grok package="." />
 
@@ -19,5 +21,7 @@
         directory="profiles/default"
         provides="Products.GenericSetup.interfaces.EXTENSION"
         />
-  
+
+    <adapter name="storyline" factory=".snippet.storyline" />
+
 </configure>

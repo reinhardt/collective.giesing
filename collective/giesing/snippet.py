@@ -6,6 +6,7 @@ from plone.directives import form, dexterity
 from plone.app.textfield import RichText
 from z3c.relationfield.schema import RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
+from plone.indexer.decorator import indexer
 
 from collective.giesing import GiesingMessageFactory as _
 from collective.giesing.location import ILocation
@@ -41,3 +42,6 @@ class ISnippet(form.Schema):
             required=False,
         )
 
+@indexer(ISnippet)
+def storyline(obj):
+    return obj.aq_parent.Title()

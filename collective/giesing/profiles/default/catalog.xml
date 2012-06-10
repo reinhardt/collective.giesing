@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_catalog" meta_type="Plone Catalog Tool">
+ <index name="timetag" meta_type="DateIndex">
+  <indexed_attr value="timetag"/>
+ </index>
+ <index name="storyline" meta_type="FieldIndex">
+  <indexed_attr value="storyline"/>
+ </index>
+ <column value="storyline" />
+ <column value="timetag" />
+</object>

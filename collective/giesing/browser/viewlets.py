@@ -7,7 +7,6 @@ from Products.CMFCore.utils import getToolByName
 
 from collective.giesing.snippet import ISnippet
 from collective.giesing.storyline import IStoryline
-from collective.giesing.interfaces import ITimeLineContext
 
 grok.templatedir('templates')
 

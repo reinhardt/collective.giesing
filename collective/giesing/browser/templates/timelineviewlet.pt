@@ -2,13 +2,7 @@
     <h3>TimeLine</h3>
     <ul tal:repeat="snippet viewlet/getTimeLine">
         <li>
-            <dl>
-                <dd tal:content="snippet/Title">A House Divided</dd>
-                <dt>
-                    <span class="storyline" tal:content="snippet/storyline">Othello</span>
-                    <span class="timetag" tal:content="snippet/timetag">1.1.2060 00:00</span>
-                </dt>
-            </dl>
+            <span tal:content="snippet/Title">A House Divided</span>, <span class="storyline" tal:content="snippet/storyline">Othello</span> <span class="timetag" tal:content="snippet/timetag">1.1.2060 00:00</span>
         </li>
     </ul>
 </div>

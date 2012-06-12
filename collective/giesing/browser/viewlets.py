@@ -21,10 +21,10 @@ class TimeLineViewlet(grok.Viewlet):
         query = dict(object_provides='collective.giesing.snippet.ISnippet',
             timetag=dict(query=[self.context.timetag, ], range='min'),
             sort_on='timetag',
-            sort_limit=10)
-        future = cat(query)
+            sort_limit=5)
+        future = [x for x in cat(query)]
         query['timetag']['range'] = 'max'
-        past = cat(query)
-        timeline = past[-10:-1] + future[:10]
+        past = [x for x in cat(query)]
+        timeline = past[-5:-1] + future[:5]
         return timeline
 

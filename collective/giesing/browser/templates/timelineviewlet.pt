@@ -1,8 +1,8 @@
-<div tal:attributes="id viewlet/__name__">
+<div id="TimeLineViewlet">
     <h3>TimeLine</h3>
     <ul>
         <li tal:repeat="snippet viewlet/getTimeLine" tal:attributes="class python:snippet['Title'] == here.Title() and 'current_snippet' or None">
-            <span class="snippet_title" tal:content="snippet/Title">A House Divided</span>, <span class="storyline" tal:content="snippet/storyline">Othello</span> <span class="timetag" tal:content="snippet/timetag">1.1.2060 00:00</span>
+            <a href="#" class="snippet_title" tal:attributes="href snippet/getURL" tal:content="snippet/Title">A House Divided</a>, <span class="storyline" tal:content="snippet/storyline">Othello</span> <span class="timetag" tal:content="snippet/timetag">1.1.2060 00:00</span>
         </li>
     </ul>
 </div>

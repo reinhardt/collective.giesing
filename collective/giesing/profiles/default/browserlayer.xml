@@ -1,0 +1,6 @@
+<layers>
+    <layer
+        name="collective.giesing"
+        interface="collective.giesing.interfaces.IGiesingLayer"
+        />
+</layers>

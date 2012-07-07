@@ -45,6 +45,6 @@ class ISnippet(form.Schema):
 
 @indexer(ISnippet)
 def storyline(obj):
-    if hasattr(obj, 'aq_parent') and IStoryline.implementedBy(obj.aq_parent):
+    if hasattr(obj, 'aq_parent') and obj.aq_parent.portal_type == 'collective.giesing.storyline':
         return obj.aq_parent.Title()
     return None

@@ -10,6 +10,7 @@ from plone.indexer.decorator import indexer
 
 from collective.giesing import GiesingMessageFactory as _
 from collective.giesing.location import ILocation
+from collective.giesing.storyline import IStoryline
 
 class ISnippet(form.Schema):
     """ A snippet is a short (a few paragraphs) prose text, usually part of a storyline
@@ -44,4 +45,6 @@ class ISnippet(form.Schema):
 
 @indexer(ISnippet)
 def storyline(obj):
-    return obj.aq_parent.Title()
+    if hasattr(obj, 'aq_parent') and IStoryline.implementedBy(obj.aq_parent):
+        return obj.aq_parent.Title()
+    return None

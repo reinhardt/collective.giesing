@@ -1,3 +1,6 @@
 #TimeLineViewlet li {
     display: block;
 }
+.current_snippet {
+    font-weight: bold;
+}

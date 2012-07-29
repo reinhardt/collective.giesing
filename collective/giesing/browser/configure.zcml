@@ -12,4 +12,10 @@
         directory="stylesheets"
         layer="collective.giesing.interfaces.IGiesingLayer"
         />
+
+    <browser:resourceDirectory
+        name="collective.giesing.images"
+        directory="images"
+        layer="collective.giesing.interfaces.IGiesingLayer"
+        />
 </configure>

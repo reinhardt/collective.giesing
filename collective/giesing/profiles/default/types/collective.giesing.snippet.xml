@@ -5,7 +5,7 @@
  <!-- Basic metadata -->
  <property name="title" i18n:translate="">Snippet</property>
  <property name="description" i18n:translate="">a short prose text, usually part of a storyline</property>
- <!--property name="content_icon">page.gif</property-->
+ <property name="content_icon">++resource++collective.giesing.images/page.png</property>
  <property name="allow_discussion">True</property>
  <property name="global_allow">True</property>
  <property name="filter_content_types">True</property>

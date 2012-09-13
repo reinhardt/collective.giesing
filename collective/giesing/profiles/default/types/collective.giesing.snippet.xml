@@ -3,8 +3,8 @@
    i18n:domain="collective.giesing" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  
  <!-- Basic metadata -->
- <property name="title" i18n:translate="">Snippet</property>
- <property name="description" i18n:translate="">a short prose text, usually part of a storyline</property>
+ <property name="title" i18n:translate="Snippet">Snippet</property>
+ <property name="description" i18n:translate="description_snippet">a short prose text, usually part of a storyline</property>
  <property name="content_icon">++resource++collective.giesing.images/page.png</property>
  <property name="allow_discussion">True</property>
  <property name="global_allow">True</property>

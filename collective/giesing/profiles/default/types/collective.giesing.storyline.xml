@@ -3,8 +3,8 @@
    i18n:domain="collective.giesing" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  
  <!-- Basic metadata -->
- <property name="title" i18n:translate="">Storyline</property>
- <property name="description" i18n:translate="">a set of logically connected snippets</property>
+ <property name="title" i18n:translate="Storyline">Storyline</property>
+ <property name="description" i18n:translate="description_storyline">a set of logically connected snippets</property>
  <property name="content_icon">++resource++collective.giesing.images/book_open.png</property>
  <property name="allow_discussion">True</property>
  <property name="global_allow">True</property>

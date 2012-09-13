@@ -3,8 +3,8 @@
    i18n:domain="collective.giesing" xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  
  <!-- Basic metadata -->
- <property name="title" i18n:translate="">Location</property>
- <property name="description" i18n:translate="">a setting for a snippet</property>
+ <property name="title" i18n:translate="Location">Location</property>
+ <property name="description" i18n:translate="description_location">a setting for a snippet</property>
  <property name="content_icon">++resource++collective.giesing.images/globe.png</property>
  <property name="allow_discussion">True</property>
  <property name="global_allow">True</property>

@@ -1,0 +1,73 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Recensio\n"
+"Language: de\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: collective.giesing:/i18n.py:4
+msgid "Location"
+msgstr "Ort"
+
+#. Default: "a setting for a snippet"
+#: collective.giesing:/i18n.py:5
+msgid "description_location"
+msgstr "Ein Schauplatz für einen Schnipsel"
+
+#: collective.giesing:/i18n.py:6
+msgid "Storyline"
+msgstr ""
+
+#. Default: "a set of logically connected snippets"
+#: collective.giesing:/i18n.py:7
+msgid "description_storyline"
+msgstr "Eine Menge logisch zusammenhängender Schnipsel"
+
+#: collective.giesing:/i18n.py:8
+msgid "Snippet"
+msgstr "Schnipsel"
+
+#. Default: "a short prose text, usually part of a storyline"
+#: collective.giesing:/i18n.py:9
+msgid "description_snippet"
+msgstr "Ein kurzer Prosatext, gewöhnlich Teil einer Storyline"
+
+#: collective.giesing:/location.py:17
+msgid "Location Name"
+msgstr "Name des Orts"
+
+#: collective.giesing:/location.py:21 collective.giesing:/snippet.py:24
+#: collective.giesing:/storyline.py:17
+msgid "Description"
+msgstr "Beschreibung"
+
+#: collective.giesing:/location.py:26
+msgid "Coordinates"
+msgstr "Koordinaten"
+
+#: collective.giesing:/location.py:30
+msgid "Coordinate"
+msgstr "Koordinate"
+
+#: collective.giesing:/snippet.py:20 collective.giesing:/storyline.py:13
+msgid "Title"
+msgstr "Titel"
+
+#: collective.giesing:/snippet.py:29
+msgid "Text"
+msgstr "Text"
+
+#: collective.giesing:/snippet.py:34
+msgid "Timetag"
+msgstr "Timetag"
+
+#: collective.giesing:/snippet.py:35
+msgid ""
+"The approximate time at which the events that this snippet describes take "
+"place"
+msgstr ""
+
+#: collective.giesing:/snippet.py:41
+msgid "Locationtag"
+msgstr "Locationtag"

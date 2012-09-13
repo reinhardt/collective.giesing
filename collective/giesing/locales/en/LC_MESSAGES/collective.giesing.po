@@ -1,0 +1,65 @@
+#: collective.giesing:/i18n.py:4
+msgid "Location"
+msgstr ""
+
+#. Default: "a setting for a snippet"
+#: collective.giesing:/i18n.py:5
+msgid "description_location"
+msgstr "a setting for a snippet"
+
+#: collective.giesing:/i18n.py:6
+msgid "Storyline"
+msgstr ""
+
+#. Default: "a set of logically connected snippets"
+#: collective.giesing:/i18n.py:7
+msgid "description_storyline"
+msgstr "a set of logically connected snippets"
+
+#: collective.giesing:/i18n.py:8
+msgid "Snippet"
+msgstr ""
+
+#. Default: "a short prose text, usually part of a storyline"
+#: collective.giesing:/i18n.py:9
+msgid "description_snippet"
+msgstr "a short prose text, usually part of a storyline"
+
+#: collective.giesing:/location.py:17
+msgid "Location Name"
+msgstr ""
+
+#: collective.giesing:/location.py:21 collective.giesing:/snippet.py:24
+#: collective.giesing:/storyline.py:17
+msgid "Description"
+msgstr ""
+
+#: collective.giesing:/location.py:26
+msgid "Coordinates"
+msgstr ""
+
+#: collective.giesing:/location.py:30
+msgid "Coordinate"
+msgstr ""
+
+#: collective.giesing:/snippet.py:20 collective.giesing:/storyline.py:13
+msgid "Title"
+msgstr ""
+
+#: collective.giesing:/snippet.py:29
+msgid "Text"
+msgstr ""
+
+#: collective.giesing:/snippet.py:34
+msgid "Timetag"
+msgstr ""
+
+#: collective.giesing:/snippet.py:35
+msgid ""
+"The approximate time at which the events that this snippet describes take "
+"place"
+msgstr ""
+
+#: collective.giesing:/snippet.py:41
+msgid "Locationtag"
+msgstr ""

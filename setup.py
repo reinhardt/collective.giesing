@@ -29,6 +29,8 @@ setup(name='collective.giesing',
           'Plone',
           'plone.app.dexterity',
           'collective.autopermission',
+          'collective.geo.contentlocations',
+          'collective.geo.behaviour',
       ],
       entry_points="""
       # -*- Entry points: -*-

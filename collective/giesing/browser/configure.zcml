@@ -5,7 +5,7 @@
     xmlns:browser="http://namespaces.zope.org/browser"
     i18n_domain="collective.giesing">
 
-    <grok:grok package=".viewlets" />
+    <grok:grok package="." />
 
     <browser:resourceDirectory
         name="collective.giesing.stylesheets"
@@ -16,6 +16,12 @@
     <browser:resourceDirectory
         name="collective.giesing.images"
         directory="images"
+        layer="collective.giesing.interfaces.IGiesingLayer"
+        />
+
+    <browser:resourceDirectory
+        name="collective.giesing.javascripts"
+        directory="javascripts"
         layer="collective.giesing.interfaces.IGiesingLayer"
         />
 </configure>

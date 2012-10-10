@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="collective.giesing">
+<head>
+<metal:head fill-slot="style_slot">
+    <!--link rel="stylesheet"
+          href="/++resource++collective.giesing.stylesheets/leaflet.css" 
+          tal:attributes="href string:${here/portal_url}/++resource++collective.giesing.stylesheets/leaflet.css"/-->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.css" />
+</metal:head>
+<metal:head fill-slot="javascript_head_slot">
+    <!--script type="text/javascript"
+            src="/++resource++collective.giesing.javascripts/leaflet.js"
+            tal:attributes="src string:${here/portal_url}/++resource++collective.giesing.javascripts/leaflet.js"></script-->
+     <script src="http://cdn.leafletjs.com/leaflet-0.4/leaflet.js"></script>
+</metal:head>
+</head>
+<body>
+
+<metal:main fill-slot="content-core">
+
+        <div tal:condition="context/coordinates">
+            <span class="coordinates"><tal:rep tal:repeat="coord context/coordinates">
+                <span tal:replace="coord">35.0</span><span tal:condition="not:repeat/coord/end" tal:omit-tag="python:True"> / </span>
+            </tal:rep></span>
+            <div id="location-map" />
+            <script type="text/javascript"
+                    tal:define="x python:context.coordinates[0];
+                                y python:context.coordinates[1];"
+                    tal:content="string:var x = ${x}; 
+                var y = ${y};
+                var map = L.map('location-map', { crs : L.CRS.EPSG3857 }).setView([x, y], 15);
+                L.tileLayer('http://{s}.tile.cloudmade.com/9643bde58f7b457a8f9c58c340727fb5/997/256/{z}/{x}/{y}.png', {
+                    attribution: 'Map data &copy; OpenStreetMap, Imagery &copy; CloudMade',
+                    maxZoom: 18
+                }).addTo(map); 
+                var marker = L.marker([x, y]).addTo(map);
+                ">
+            </script>
+        </div>
+        <div class="visualClear"></div>
+</metal:main>
+
+</body>
+</html>

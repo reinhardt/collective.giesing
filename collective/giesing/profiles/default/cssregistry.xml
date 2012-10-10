@@ -11,4 +11,14 @@
               rel="stylesheet" 
               rendering="import"
               />
+  <stylesheet title="" 
+              cacheable="True" 
+              compression="safe" 
+              cookable="True"
+              enabled="1" 
+              id="++resource++collective.giesing.stylesheets/leaflet.css"
+              media="screen"
+              rel="stylesheet" 
+              rendering="import"
+              />
 </object>

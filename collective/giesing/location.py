@@ -29,3 +29,11 @@ class ILocation(form.Schema):
             max_length=2,
             value_type=schema.Float(title=_("Coordinate")),
         )
+
+grok.templatedir('templates')
+
+class LocationView(grok.View):
+    grok.context(ILocation)
+    grok.name('view')
+    grok.require('zope2.View')
+    grok.template('location_view')

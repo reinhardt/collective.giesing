@@ -4,3 +4,8 @@
 .current_snippet {
     font-weight: bold;
 }
+
+#location-map {
+    height: 360px;
+    width: 360px;
+}

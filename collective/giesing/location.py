@@ -1,11 +1,18 @@
 from five import grok
 from zope import schema
+from zope.interface import Interface
 
 from plone.directives import form, dexterity
 
 from plone.app.textfield import RichText
 
 from collective.giesing import GiesingMessageFactory as _
+
+from collective.geo.behaviour.behaviour import ICoordinates
+from collective.geo.mapwidget.interfaces import IMapLayer, IMapWidget as IMapWidget_geo
+from collective.geo.mapwidget.maplayers import MapLayer
+from collective.z3cform.mapwidget.widget import IMapWidget
+from collective.z3cform.mapwidget.maplayers import ShapeMapDisplayWidget
 
 class ILocation(form.Schema):
     """ A location is a real or fictional place where a snippet can be set. A 
@@ -22,10 +29,43 @@ class ILocation(form.Schema):
             required=False,
         )
 
-    coordinates = schema.Tuple(
-            title=_("Coordinates"),
-            required=False,
-            min_length=2,
-            max_length=2,
-            value_type=schema.Float(title=_("Coordinate")),
-        )
+class LocationShapeMapDisplayWidget(grok.MultiAdapter, ShapeMapDisplayWidget):
+    grok.adapts(IMapWidget, Interface, ILocation)
+    grok.provides(IMapWidget_geo)
+    grok.implements(IMapWidget_geo)
+    grok.name('geoshapedisplaymap')
+
+    _layers = ['shapedisplay', 'all_locations']
+    
+
+class AllLocations(grok.MultiAdapter, MapLayer):
+    grok.adapts(Interface, Interface, ILocation, Interface)
+    grok.provides(IMapLayer)
+    grok.implements(IMapLayer)
+    grok.name('all_locations')
+
+    @property
+    def jsfactory(self):
+        coords = []
+        for obj in self.context.aq_parent.objectValues():
+            if not obj == self.context and obj.portal_type == 'collective.giesing.location':
+                coords.append(ICoordinates(obj).coordinates)
+        return """
+function() { return (function(cgmap) {
+cg_default_options = cgmap.createDefaultOptions();
+var wkt = new OpenLayers.Format.WKT({
+internalProjection: cg_default_options.projection,
+externalProjection: cg_default_options.displayProjection
+});
+var features = wkt.read('GEOMETRYCOLLECTION(%(coords)s') || [];
+wkt.destroy();
+if(features.constructor != Array) {
+features = [features];
+}
+var layer = new OpenLayers.Layer.Vector('All Locations');
+layer.addFeatures(features);
+return layer;
+})(cgmap);
+}
+""" % { 'coords': ','.join(coords)}
+

@@ -48,8 +48,11 @@ class AllLocations(grok.MultiAdapter, MapLayer):
     def jsfactory(self):
         coords = []
         for obj in self.context.aq_parent.objectValues():
-            if not obj == self.context and obj.portal_type == 'collective.giesing.location':
-                coords.append(ICoordinates(obj).coordinates)
+            if not obj == self.context \
+               and obj.portal_type == 'collective.giesing.location':
+                c = ICoordinates(obj).coordinates
+                if c:
+                    coords.append(c)
         return """
 function() { return (function(cgmap) {
 cg_default_options = cgmap.createDefaultOptions();

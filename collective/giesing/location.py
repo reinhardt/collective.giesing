@@ -53,6 +53,8 @@ class AllLocations(grok.MultiAdapter, MapLayer):
                 c = ICoordinates(obj).coordinates
                 if c:
                     coords.append(c)
+        if len(coords) == 0:
+            return ""
         return """
 function() { return (function(cgmap) {
 cg_default_options = cgmap.createDefaultOptions();

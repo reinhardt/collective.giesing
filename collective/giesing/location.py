@@ -60,7 +60,7 @@ var wkt = new OpenLayers.Format.WKT({
 internalProjection: cg_default_options.projection,
 externalProjection: cg_default_options.displayProjection
 });
-var features = wkt.read('GEOMETRYCOLLECTION(%(coords)s') || [];
+var features = wkt.read('GEOMETRYCOLLECTION(%(coords)s)') || [];
 wkt.destroy();
 if(features.constructor != Array) {
 features = [features];

@@ -25,5 +25,6 @@
     <i18n:registerTranslations directory="locales" />
 
     <adapter name="storyline" factory=".snippet.storyline" />
+    <adapter name="SearchableText" factory=".snippet.SearchableText" />
 
 </configure>

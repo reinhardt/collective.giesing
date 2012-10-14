@@ -1,6 +1,8 @@
 from five import grok
 from zope import schema
 
+from Products.CMFPlone.utils import getToolByName
+
 from plone.directives import form, dexterity
 
 from plone.app.textfield import RichText
@@ -48,3 +50,9 @@ def storyline(obj):
     if hasattr(obj, 'aq_parent') and obj.aq_parent.portal_type == 'collective.giesing.storyline':
         return obj.aq_parent.Title()
     return None
+
+@indexer(ISnippet)
+def SearchableText(obj):
+    portal_transforms = getToolByName(obj, 'portal_transforms')
+    text = portal_transforms.convertTo('text/plain', obj.text.output, object=obj).getData()
+    return u' '.join([obj.title or u'', obj.description or u'', text])

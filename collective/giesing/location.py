@@ -56,21 +56,21 @@ class AllLocations(grok.MultiAdapter, MapLayer):
         if len(coords) == 0:
             return ""
         return """
-function() { return (function(cgmap) {
-cg_default_options = cgmap.createDefaultOptions();
-var wkt = new OpenLayers.Format.WKT({
-internalProjection: cg_default_options.projection,
-externalProjection: cg_default_options.displayProjection
-});
-var features = wkt.read('GEOMETRYCOLLECTION(%(coords)s)') || [];
-wkt.destroy();
-if(features.constructor != Array) {
-features = [features];
-}
-var layer = new OpenLayers.Layer.Vector('All Locations');
-layer.addFeatures(features);
-return layer;
-})(cgmap);
-}
+    function() { return (function(cgmap) {
+        cg_default_options = cgmap.createDefaultOptions();
+        var wkt = new OpenLayers.Format.WKT({
+            internalProjection: cg_default_options.projection,
+            externalProjection: cg_default_options.displayProjection
+        });
+        var features = wkt.read('GEOMETRYCOLLECTION(%(coords)s)') || [];
+        wkt.destroy();
+        if(features.constructor != Array) {
+            features = [features];
+        }
+        var layer = new OpenLayers.Layer.Vector('All Locations');
+        layer.addFeatures(features);
+        return layer;
+    })(cgmap);
+    }
 """ % { 'coords': ','.join(coords)}
 

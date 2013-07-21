@@ -22,6 +22,14 @@ class IStoryline(form.Schema):
             required=False,
         )
 
+class View(grok.View):
+    """Present the contents of the storyline."""
+    grok.context(IStoryline)
+    grok.layer(IGiesingLayer)
+    grok.require('zope2.View')
+    grok.template('storyline_view')
+
+
 class RSS(grok.View):
     """ A storyline specific RSS view """
     grok.context(IStoryline)

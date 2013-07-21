@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="example.conference">
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+
+        <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+        <h1 class="documentFirstHeading" tal:content="context/title" />
+
+        <div tal:replace="structure provider:plone.belowcontenttitle" />
+
+        <p class="documentDescription" tal:content="context/description" />
+
+        <div tal:replace="structure provider:plone.abovecontentbody" />
+
+        <div id="content-core" tal:define="plone_view context/@@plone">
+            <dl>
+                <dt tal:repeat="snippet context/objectValues">
+                    <span class="summary" tal:define="icon python:plone_view.getIcon(snippet);">
+                        <img tal:replace="structure icon/html_tag" />
+                        <a href="#" tal:attributes="href snippet/absolute_url" tal:content="snippet/Title">
+                            A Snippet
+                        </a>
+                    </span>
+                    <span class="documentByLine">
+                        <tal:timetag tal:condition="snippet/timetag">
+                        &mdash;
+                        <span class="timetag" tal:content="snippet/timetag">
+                            20.05.60 05:30
+                        </span>
+                        </tal:timetag>
+                        <tal:locationtag tal:condition="snippet/locationtag">
+                        &mdash;
+                        <span class="locationtag">
+                            <a href="#" tal:attributes="href snippet/locationtag/to_object/absolute_url" tal:content="snippet/locationtag/to_object/Title">
+                                Somewhere
+                            </a>
+                        </span>
+                        </tal:locationtag>
+                    </span>
+                </dt>
+            </dl>
+        </div>
+
+        <div tal:replace="structure provider:plone.belowcontentbody" />
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>

@@ -1,8 +1,13 @@
 <div id="TimeLineViewlet">
     <h3>TimeLine</h3>
     <ul>
-        <li tal:repeat="snippet viewlet/getTimeLine" tal:attributes="class python:snippet['Title'] == here.Title() and 'current_snippet' or None">
-            <a href="#" class="snippet_title" tal:attributes="href snippet/getURL" tal:content="snippet/Title">A House Divided</a>, <span class="storyline" tal:condition="snippet/storyline" tal:content="snippet/storyline">Othello</span> <span class="timetag" tal:content="snippet/timetag">1.1.2060 00:00</span>
+      <tal:item tal:repeat="snippet viewlet/getTimeLine">
+        <li         tal:define="oddeven python:repeat['snippet'].index % 2 and 'odd' or 'even';
+                            current python:snippet['Title'] == here.Title() and 'current_snippet' or '';"
+        tal:attributes="class string:${oddeven} ${current}">
+            <a href="#" class="snippet_title" tal:attributes="href snippet/getURL; title snippet/timetag" tal:content="snippet/Title">A House Divided</a>
+            <!--span class="storyline" tal:condition="snippet/storyline" tal:content="snippet/storyline">Othello</span> <span class="timetag" tal:content="snippet/timetag">1.1.2060 00:00</span-->
         </li>
+      </tal:item>
     </ul>
 </div>

@@ -29,6 +29,11 @@ class ILocation(form.Schema):
             required=False,
         )
 
+    text = RichText(
+            title=_(u"Text"),
+            required=False,
+        )
+
 class LocationShapeMapDisplayWidget(grok.MultiAdapter, ShapeMapDisplayWidget):
     grok.adapts(IMapWidget, Interface, ILocation)
     grok.provides(IMapWidget_geo)

@@ -9,7 +9,10 @@ from plone.app.textfield import RichText
 from collective.giesing import GiesingMessageFactory as _
 
 from collective.geo.behaviour.behaviour import ICoordinates
-from collective.geo.mapwidget.interfaces import IMapLayer, IMapWidget as IMapWidget_geo
+from collective.geo.mapwidget.interfaces import (
+    IMapLayer,
+    IMapWidget as IMapWidget_geo,
+)
 from collective.geo.mapwidget.maplayers import MapLayer
 from collective.z3cform.mapwidget.widget import IMapWidget
 from collective.z3cform.mapwidget.maplayers import ShapeMapDisplayWidget
@@ -21,18 +24,19 @@ class ILocation(form.Schema):
     """
 
     title = schema.TextLine(
-            title=_(u"Location Name"),
-        )
+        title=_(u"Location Name"),
+    )
 
     description = schema.Text(
-            title=_(u"Description"),
-            required=False,
-        )
+        title=_(u"Description"),
+        required=False,
+    )
 
     text = RichText(
             title=_(u"Text"),
             required=False,
         )
+
 
 class LocationShapeMapDisplayWidget(grok.MultiAdapter, ShapeMapDisplayWidget):
     grok.adapts(IMapWidget, Interface, ILocation)
@@ -41,7 +45,7 @@ class LocationShapeMapDisplayWidget(grok.MultiAdapter, ShapeMapDisplayWidget):
     grok.name('geoshapedisplaymap')
 
     _layers = ['shapedisplay', 'all_locations']
-    
+
 
 class AllLocations(grok.MultiAdapter, MapLayer):
     grok.adapts(Interface, Interface, ILocation, Interface)

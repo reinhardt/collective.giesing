@@ -45,6 +45,7 @@ class ISnippet(form.Schema):
             required=False,
         )
 
+
 @indexer(ISnippet)
 def storyline(obj):
     if hasattr(obj, 'aq_parent') and obj.aq_parent.portal_type == 'collective.giesing.storyline':

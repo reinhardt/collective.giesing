@@ -27,10 +27,12 @@ setup(name='collective.giesing',
           'setuptools',
           # -*- Extra requirements: -*-
           'Plone',
-          'plone.app.dexterity',
+          'plone.app.dexterity [grok]',
           'collective.autopermission',
           'collective.geo.contentlocations',
           'collective.geo.behaviour',
+          'plone.app.versioningbehavior',
+          'z3c.relationfield',
       ],
       entry_points="""
       # -*- Entry points: -*-

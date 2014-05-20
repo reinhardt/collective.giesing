@@ -2,6 +2,7 @@
     <version>1</version>
     <dependencies>
         <dependency>profile-plone.app.dexterity:default</dependency>
+        <dependency>profile-plone.app.versioningbehavior:default</dependency>
         <dependency>profile-collective.geo.contentlocations:default</dependency>
     </dependencies>
 </metadata>

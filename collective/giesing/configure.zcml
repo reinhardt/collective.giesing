@@ -26,6 +26,7 @@
 
     <adapter name="storyline" factory=".snippet.storyline" />
     <adapter name="SearchableText" factory=".snippet.SearchableText" />
+    <adapter name="UID" factory=".indexer.UID" />
 
     <genericsetup:upgradeSteps
       source="1"

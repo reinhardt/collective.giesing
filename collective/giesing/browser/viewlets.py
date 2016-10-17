@@ -52,3 +52,24 @@ class LocatineTimeLineViewlet(grok.Viewlet):
                     for obj in snippets]
         timeline.sort(key=lambda x: x['timetag'])
         return timeline
+
+class LocationViewlet(grok.Viewlet):
+    grok.context(ISnippet)
+    grok.name('collective.giesing.LocationViewlet')
+    grok.require('zope2.View')
+    grok.viewletmanager(IBelowContent)
+
+    def getSnippets(self):
+        intids = getUtility(IIntIds)
+        relcatalog = getUtility(ICatalog)
+
+        snippets = [intids.getObject(rv.from_id)
+                    for rv in relcatalog.findRelations(
+                        {'to_id': self.context.locationtag.to_id})]
+        timeline = [dict(Title=obj.Title(),
+                         getURL=obj.absolute_url(),
+                         storyline=obj.aq_parent.Title(),
+                         timetag=obj.timetag)
+                    for obj in snippets]
+        timeline.sort(key=lambda x: x['timetag'])
+        return timeline

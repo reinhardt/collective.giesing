@@ -1,0 +1,14 @@
+<div id="LocationViewlet">
+    <h3>Location</h3>
+    <a href="#" tal:attributes="href context/locationtag/to_object/absolute_url" tal:content="context/locationtag/to_object/Title">Freiraum</a>
+    <ul>
+      <tal:item tal:repeat="snippet viewlet/getSnippets">
+        <li tal:define="oddeven python:repeat['snippet'].index % 2 and 'odd' or 'even';
+                            current python:snippet['Title'] == here.Title() and 'current_snippet' or '';"
+            tal:attributes="class string:${oddeven} ${current}">
+            <a href="#" class="snippet_title" tal:attributes="href snippet/getURL; title snippet/timetag" tal:content="snippet/Title">A House Divided</a>
+            <!--span class="storyline" tal:condition="snippet/storyline" tal:content="snippet/storyline">Othello</span> <span class="timetag" tal:content="snippet/timetag">1.1.2060 00:00</span-->
+        </li>
+      </tal:item>
+    </ul>
+</div>
